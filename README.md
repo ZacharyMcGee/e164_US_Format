@@ -10,16 +10,18 @@
 
 ## Explanation:
 
-** Imports
+### Imports
 
 import java.util.Scanner;
+
 import java.util.regex.Matcher;
+
 import java.util.regex.Pattern;
 
 I have imported a scanner for system input to allow the user to input a phone number. I also imported regex pattern and matcher for the regular expression
 provided later in the program.
 
-** Main Method
+### Main Method
 
 public static void main(String args[]) {
 	String num = getNumber();
@@ -33,7 +35,7 @@ Here is the main method that first calls the method getNumber() and assigns the 
 validateNumber() with the num variable as the parameter. If validateNumber() returns true then the phone number is valid and we can proceed to returning 
 the e164 United States normalized format by calling returnNormalized() on the variable num.
 
-** getNumber() 
+### getNumber() 
 
 public static String getNumber() {
 	Scanner scan = new Scanner(System.in);
@@ -44,7 +46,7 @@ public static String getNumber() {
 
 getNumber() creates a scanner object and gets user input with System.in. 
 
-** validateNumber()
+### validateNumber()
 
 public static boolean validateNumber(String number) {
     String pattern = "^\\(?[0-9]{3}\\)?-?[0-9]{3}-?[0-9]{4}$";
@@ -76,7 +78,7 @@ This regex will allow numbers such as:
 	(111)2223333
 	(111)-222-3333
 
-** containsSymbols()
+### containsSymbols()
 
 public static boolean containsSymbols(String number) {
 	if(number.contains("-") || number.contains("(") || number.contains(")")){
@@ -90,7 +92,7 @@ public static boolean containsSymbols(String number) {
 
 This checks to see if the inputted number contains ( or ) or - and returns true if it does.
 
-** stripNumber() 
+### stripNumber() 
 
 public static String stripNumber(String number) {
 	number = number.replace("-", "");
@@ -101,7 +103,7 @@ public static String stripNumber(String number) {
 
 This will remove ( or ) or - from the given string.
 
-** normalizeNumber()
+### normalizeNumber()
 
 public static String returnNormalized(String number) {
 	if(containsSymbols(number)) {
